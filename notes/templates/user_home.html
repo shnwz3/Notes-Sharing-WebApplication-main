@@ -1,0 +1,54 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static%}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cinzel:wght@700&family=Markazi+Text:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+    
+</style>
+
+<body id="bodycss">
+    <div class="container">
+        <h2 class="text-center mt-5" style="text-transform: capitalize;font-family: 'Cabin', sans-serif;font-size: 50px;"><b>Welcome to NotesLink</b></h2>
+        <div class="container text-center" style="background-color: rgb(224, 109, 55); border:3px solid black;">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card my-2" style="border: 2px solid black;">
+                        <img src="{% static 'images/profile.png' %}" alt="" style="width: 100%;">
+                        <h1 style="text-transform: capitalize;"> {{data.user.first_name}}&nbsp;{{data.user.last_name}}
+                        </h1>
+                        <p class="title">Email: {{data.user.username}}</p>
+                        <p class="title">Role: {{data.role}}</p>
+                        <p class="title">Contact: {{data.contact}}</p>
+                        <p class="title">Branch: {{data.branch}}</p>
+                        <p class="title">Year {{data.Year}}</p>
+                        <a href="{% url 'edit_profile' %}" class="btn btn-success mt-3">EDIT PROFILE</a>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="container my-2 mx-3" style="font-family: 'Cabin', sans-serif;font-size: 25px;"><br><br><br>
+                            <p>
+                                <center>
+                                    <b>Hello {{data.user.first_name}}! Welcome to your profile.
+                                        To gain and spread knowledge among all the students around the globe, we are
+                                        here
+                                        with our unique website. This website will help you to get notes of your desired
+                                        subjects
+                                        and also if you are interested to share your own notes of any subject you
+                                        are free
+                                        to share them with all the other student around the globe.</b>
+                                </center>
+                            </p>
+                    </div>
+                </div>
+
+
+            </div>
+</body>
+{% endblock %}

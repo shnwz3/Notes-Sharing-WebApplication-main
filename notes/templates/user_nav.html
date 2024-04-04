@@ -1,0 +1,113 @@
+<html lang="en">
+
+<head>
+
+  {% load static %}
+  <title>Notes Sharing Site</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+
+  <!--Styling starts here as mystyle.css is not working-->
+  <style>
+    .heading1 {
+      padding: 3%;
+      font-size: 50px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: black;
+    }
+
+    .navbar {
+      border: 2px solid black;
+    }
+
+    .nav-link {
+      font-weight: bold;
+      color: black;
+    }
+
+    .nav-link:hover {
+      color: black;
+      font-weight: bold;
+      background-color: #d1955d;
+      border-radius: 10px;
+    }
+
+    .btn-group:hover {
+      color: black;
+      font-weight: bold;
+      background-color: #d1955d;
+      border-radius: 10px;
+    }
+    .dropdown-item:hover{
+      background-color: rgb(225, 255, 255);
+      font-weight: bold;
+    }
+    .new {
+      text-align: left;
+      color: rgb(7, 7, 7);
+      font-weight: bold;
+      font-family: 'Lobster', cursive;
+      font-size: 25px;
+      text-shadow: 1.5px 1.5px 1.5px black;
+    }
+
+    .img {
+      image: url({% static 'images/logo.png' %});
+    
+    }
+  </style>
+  <!--Styling ends here-->
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm" style="background-color: orange;">
+    <img src="{% static 'images/logo.png' %}" width="4.5%" height="4.5%">
+    <div class="new">NoteLink</div>
+    <ul class="navbar-nav" style="margin-left: auto;">
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'user_home' %}">HOME</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'upload_notes' %}">UPLOAD NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'view_mynotes' %}">VIEW YOUR NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'view_allnotes' %}">VIEW ALL NOTES</a>
+      </li>
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'home_blog' %}">BLOG</a>
+      </li>
+      <div class="btn-group">
+        <button type="button" style="color:black" class="dropdown-toggle btn" data-toggle="dropdown">
+          <b>MORE</b>
+        </button>
+        <div class="dropdown-menu" style="background-color: white; border:2px;">
+          <a class="dropdown-item" href="{% url 'user_home' %}" style="color: black;">Profile</a>
+          <a class="dropdown-item" href="{% url 'edit_profile' %}" style="color: black;">Edit Profile</a>
+          <a class="dropdown-item" href="{% url 'change_password' %}" style="color: black;">Change Password</a>
+        </div>
+      </div>
+      <li class="navbar-item">
+        <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+      </li>
+      
+      
+    </ul>
+  </nav>
+</body>
+
+</html>
+
+{% block body %}
+{% endblock %}

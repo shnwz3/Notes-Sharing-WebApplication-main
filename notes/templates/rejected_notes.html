@@ -1,0 +1,69 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+</script>
+
+
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+    .rejected_table{
+        overflow: auto;
+    }
+</style>
+
+<body id="bodycss">
+<div class="container mt-5">
+    <h2 class="text-center" style="font-family: 'Times New Roman', Times, serif;font-size: 50px;"><b>REJECTED NOTES</b></h2>
+    <div class="rejected_table">
+    <table class="table table-bordered" id="example"  style="border: 2px solid black;">
+        <thead>
+            <tr style="text-align: center;">
+                <th style="border: 2px solid black;">Sr.No.</th>
+                <th style="border: 2px solid black;">Uploading Date</th>
+                <th style="border: 2px solid black;">Uploaded By</th>
+                <th style="border: 2px solid black;">Branch</th>
+                <th style="border: 2px solid black;">Subject</th>
+                <th style="border: 2px solid black;">Download Notes</th>
+                <th style="border: 2px solid black;">File Type</th>
+                <th style="border: 2px solid black;">Description</th>
+                <th style="border: 2px solid black;">Status</th>
+                <th style="border: 2px solid black;">Assign&nbsp;Status</th>
+                <th style="border: 2px solid black;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in notes %}
+            <tr style="text-align: center;">
+                <td style="border: 1px solid black;">{{forloop.counter}}</td>
+                <td style="border: 1px solid black;">{{i.uploadingdate}}</td>                                            <!--this "uploadingdate" is a column created in models.py by in Notes class-->
+                <td style="border: 1px solid black;">{{i.user.username}}</td>                                                
+                <td style="border: 1px solid black;">{{i.branch}}</td>
+                <td style="border: 1px solid black;">{{i.subject}}</td>
+                <td style="border: 1px solid black;"><a class=" btn btn-warning" href="{{i.notesfile.url}}" download>Download</a></td>
+                <td style="border: 1px solid black;">{{i.filetype}}</td>
+                <td style="border: 1px solid black;">{{i.description}}</td>
+                <td style="border: 1px solid black;">{{i.status}}</td>
+                <td style="border: 1px solid black;"><a href="{% url 'assign_status' i.id %}" class="btn btn-success">Status</a></td>
+                <td style="border: 1px solid black;"><a href="{% url 'delete_notes' i.id %}" class="btn btn-danger" onclick="return confirm('Do you want to delete?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+{% endblock %}

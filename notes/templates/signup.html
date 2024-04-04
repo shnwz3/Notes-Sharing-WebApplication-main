@@ -1,0 +1,90 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static%}
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+</style>
+<body id="bodycss">
+<div class="container my-2"
+    style="background-color:#d8c385; color: black; box-shadow: 8px 8px 8px #d8c385; height: 673px; width: 100%; padding: px;">
+    <div>
+        <h2 class="text-center" style="font-family: 'Cinzel', serif;font-size: 45px;"><b>REGISTER</b></h2>
+        <hr width=100% height=30px color="black">
+        <p><b>Create Your Account Here!</b></p>
+        <form method="post">
+            {% csrf_token %}
+            <b><label>First Name :</label>
+                <input type="text" class="form-control" placeholder="Enter First Name" name="firstname">
+                <label>Last Name :</label>
+                <input type="text" class="form-control" placeholder="Enter Last Name" name="lastname">
+                <label>Contact :</label>
+                <input type="text" class="form-control" placeholder="Enter Contact" name="contact">
+                <label>Email Address :</label>
+                <input type="email" class="form-control" placeholder="Enter Email" name="emailid">
+                <label>Password :</label>
+                <input type="password" class="form-control" placeholder="Enter Password" name="pwd">
+
+                <label>You are:</label>
+                <select class="form-control" name="role">
+                    <option value="Student">Student</option>
+                    <option value="Faculty">Faculty</option>
+                </select>
+
+                <label>Branch :</label>
+                <select class="form-control" name="branch">
+                    <option value="CS">CS</option>
+                    <option value="IT">IT</option>
+                    <option value="Mechanical">Mechanical</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Aeronautics">Aeronautics</option>
+                    <option value="EX">EX</option>
+                    <option value="EC">EC</option>
+                    <option value="EE">EE</option>
+                </select>
+                <label>Year :</label><br>
+                {% comment %} <select class="form-control" name="Year">
+                    <option value="CS">1st</option>
+                    <option value="IT">2nd</option>
+                    <option value="Mechanical">3rd</option>
+                    <option value="Civil">4th</option>
+                </select> {% endcomment %}
+                <input type="radio" id="1" name="year" value="1">
+<h10 for="1"> I Year</h10>
+<input type="radio" id="2" name="year" value="2">
+<h10 for="2">II Year</h10>
+<input type="radio" id="3" name="year" value="3">
+<h10 for="3">III Year</h10>
+<input type="radio" id="4" name="year" value="4">
+<h10 for="4">IV Year</h10><br>
+
+                
+                <center><input type="submit" class="btn btn-danger mt-2" value="SUBMIT"></center>
+            </b>
+        </form>
+    </div>
+    
+</div>
+</body>
+
+
+{% if error == "no" %}
+<script>
+    alert('Signup Successfully');
+    window.location = ('{% url 'login' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again!!');
+</script>
+{% endif %}
+
+
+{% endblock %}

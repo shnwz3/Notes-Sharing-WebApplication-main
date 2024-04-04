@@ -1,0 +1,42 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static%}
+
+{% if error == "no" %}
+<script>
+    alert('Logged In Successfully');
+    window.location = ('{% url 'admin_home' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again!!');
+</script>
+{% endif %}
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+</style>
+
+<body id="bodycss">
+    <div class="container mt-5"
+        style="background-color:#d8c385; color: black; box-shadow: 3px 3px 3px #d8c385; height: 75%; width: 100%; padding: 12px;">
+        <b>
+            <h2 class="text-center" style="font-family: 'Cinzel', serif;font-size: 45px;"><b>ADMIN LOGIN</b></h2>
+            <hr width=100% height=6px color="black">
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                <label>User Name :</label>
+                <input type="text" class="form-control" placeholder="Enter User Name" name="uname"></div>
+                <div class="form-group">
+                <label>Password :</label>
+                <input type="password" class="form-control" placeholder="Enter Password" name="pwd"></div>
+                <center><input type="submit" class="btn mt-2 btn-danger" value="Login"></center>
+            </form>
+        </b>
+    </div>
+</body>
+{% endblock %}

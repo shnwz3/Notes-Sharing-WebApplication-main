@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>NotesLink</title>
+    <link rel="icon" href="images/logo.png" type="images/logo.png">
+</head>
+<body class="body1">
+    <div class="container-fluid bg-dark">
+        {% include 'blog_navbar.html' %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% block msg %}
+                {% endblock msg %}
+            </div>
+        </div>
+        <div class="row">
+            {% block side %}
+            {% endblock side %}
+
+            {% block content  %}
+            {% endblock content %}
+        </div>
+    </div>
+
+
+<script src="{% static 'javascript/jquery.js' %}"></script>
+<script src="{% static 'javascript/popper.js' %}"></script>
+<script src="{% static 'javascript/bootstrap.js' %}"></script>
+</body>
+</html>

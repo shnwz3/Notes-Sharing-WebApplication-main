@@ -1,0 +1,98 @@
+{% extends 'user_nav.html' %}
+{% block body %}
+{% load static%}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+    .edit form{border-radius: 0;}
+</style>
+
+<body id="bodycss">
+    <div class="container my-4"
+        style="background-color:#d8c385; color: black; box-shadow: 8px 8px 8px #d8c385; height: 75%; width: 100%;">
+        <h2 class="text-center mt-5 my-3" style="font-family: 'Cinzel', serif;font-size: 50px;"><b>EDIT PROFILE</b></h2>
+        <div class="row">
+            <div class="col-md-6 edit">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label><b>First Name:</b></label>
+                            <input type="text" class="form_control" value="{{data.user.first_name}}" name="firstname">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label><b>Last Name:</b></label>
+                            <input type="text" class="form_control" value="{{data.user.last_name}}" name="lastname">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12 my-2">
+                            <label><B>Email Id:</b></label><br>
+                            <input type="text" class="form_control" value="{{data.user.username}}" name="emailid"
+                                readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label><B>Contact:</B></label><br>
+                            <input type="text" class="form_control" value="{{data.contact}}" name="contact">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label><b>Branch:</B></label><br>
+                            <select class="form-control" name="branch">
+                                <option value="CS">CS</option>
+                                <option value="IT">IT</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Aeronautics">Aeronautics</option>
+                                <option value="EX">EX</option>
+                                <option value="EC">EC</option>
+                                <option value="EE">EE</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <br>
+                            <input type="text" value="{{data.branch}}" class="form-control" readonly>
+                        </div>
+                    </div>
+                    {% comment %} ...... {% endcomment %}
+                    {% comment %} <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label><b>Year:</B></label><br>
+                            <select class="form-control" name="Year">
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="Mechanical">Mechanical</option>
+                                <option value="Civil">Civil</option>
+ 
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <br>
+                            <input type="text" value="{{data.Year}}" class="form-control" readonly>
+                        </div>
+                    </div> {% endcomment %}
+                    <center><input type="submit" class="btn btn-danger mt-3" value="UPDATE"></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% if error %}
+<script>
+    alert('Profile Updated Successfully!');
+    window.location = "{% url 'user_home' %}";
+</script>
+{% endif %}
+
+
+{% endblock %}

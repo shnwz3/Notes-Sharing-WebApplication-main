@@ -1,0 +1,71 @@
+{% extends 'admin_nav.html' %}
+{% block body %}
+{% load static%}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+</script>
+
+
+<style>
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+</style>
+
+<body id="bodycss">
+    <div class="container mt-5 my-5"
+        style="background-color:#d8c385; color: black; box-shadow: 8px 8px 8px #d8c385; height: 75%; width: 100%;">
+        <h2 class="text-center my-3" style="font-family: cursive;"><b>ASSIGN STATUS</b></h2>
+        <hr height=3px color="black">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label><b>Notes ID:</b></label>
+            <input type="text" name="notesid" class="form-control" value="{{notes.id}}" readonly>
+            <br>
+            <label><b>Status:</b></label>
+            <select name="status" class="form-control">
+                <option value="accept">Accept</option>
+                <option value="reject">Reject</option>
+            </select>
+            <br>
+            <input type="submit" value="Submit" class="btn btn-dark form-control">
+        </form>
+    </div>
+</body>
+
+{% comment %} {% ifequal error == "no" %}
+<script>
+    alert('Status updated Successfully');
+    window.location = ('{% url 'all_notes' %}');
+</script>
+{% endifequal %}
+
+{% ifequal error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again!!');
+</script>
+{% endifequal %} {% endcomment %}
+{% if error == "no" %}
+<script>
+    alert('Status updated Successfully');
+    window.location = '{% url 'all_notes' %}';
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+    alert('Something went wrong, Try Again!!');
+</script>
+{% endif %}
+
+{% endblock %}

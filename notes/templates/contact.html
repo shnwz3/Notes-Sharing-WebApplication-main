@@ -1,0 +1,39 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static%}
+<head>
+    <style>
+        #bodycss{
+            background-color: rgb(225, 255, 255);
+        }
+    </style>
+</head>
+<body id="bodycss">
+<div>
+
+    <h3 class="text-center text-black container pt-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 60px;font-weight: bolder;">Contact Us</h3>
+    <!--here we have done designing of h3 tag using classes we can use css as well, if we want-->
+
+</div>
+<div class="container mt-5 justify">
+    <div class="row">
+        <div class="col-sm-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18356.333758600507!2d79.46947865294975!3d18.087764927831483!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a334bd4e1161b4f%3A0x7f4dea9a0d18958b!2sSR%20University!5e0!3m2!1sen!2sin!4v1712217485929!5m2!1sen!2sin" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <br><br>
+        </div>
+        <div class="col-sm-6 mt-5">
+            <p><i class="fas fa-envelope"> Email ID : mr.shahnawaz03@gmail.com</i></p>
+            <p><i class="fas fa-phone-square"> Contact n0. : 9398874956</i></p>
+            <p><i class="fas fa-address-card"> Address : 56/F hhhgesdvxuguydgs,bhgygi</i></p>
+            <p><i class="far fa-clock "> Office Hours : 8 AM - 6 PM</i></p><br>
+            <p><b>FOLLOW US:</B></p>
+            <a href="#"><i class="fab fa-facebook-f pr-3" style="font-size:24px"></i></a>
+            <a href="#"><i class="fab fa-twitter pr-3" style="font-size:24px" ></i></a>
+            <a href="#"><i class="fab fa-telegram-plane pr-3" style="font-size:24px"></i></a>
+            <a href="#"><i class="fa fa-linkedin-square " style="font-size:24px"></i></a>
+        </div>
+    </div>
+</div>
+
+{%  endblock %}
+</body>

@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+
+
+  <!--Styling starts here as mystyle.css is not working-->
+  <style>
+    .navbar {
+      border: 2px solid black;
+    }
+
+    .nav-link{
+      font-weight: bold;
+      color: black;
+    }
+
+    .nav-link:hover {
+      color: black;
+      font-weight: bold;
+      background-color: #d1955d;
+      border-radius: 10px;
+    }
+
+    .new {
+      text-align: left;
+      color: rgb(7, 7, 7);
+      font-weight: bold;
+      font-family: 'Lobster', cursive;
+      font-size: 25px;
+      text-shadow: 1.5px 1.5px 1.5px black;
+    }
+    .img{
+    image: url({% static 'images/logo.png' %});
+    }
+  </style>
+  <!--Styling ends here-->
+  <title>NotesLink</title>
+    <link rel="icon" href="images/logo.png" type="image/png">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm" style="background-color: orange;">
+      <img src="{% static 'images/logo.png' %}" width="4.5%" height="4.5%">
+      <div class="new">NotesLink</div>
+      <ul class="navbar-nav" style="margin-left: auto;">
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'index' %}">HOME</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'signup' %}">SIGNUP</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+        </li>
+        <li class="navbar-item">
+          <a class="nav-link" href="{% url 'login_admin' %}">ADMIN LOGIN</a>
+        </li>
+      </ul>
+    </nav>
+</body>
+</html>
+
+{% block body %}
+{% endblock %}

@@ -1,0 +1,185 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+
+
+
+<!--Styling starts here as mystyle.css is not working-->
+<style>
+    #bodycss {
+        background-color: purple;
+    }
+
+
+    .halfCircle {
+        height: 75px;
+        width: 150px;
+        border-radius: 90px 90px 0 0;
+        margin: 0px;
+        background-color: white;
+        text-align: center;
+    }
+
+    .fas {
+        margin-top: 55px;
+    }
+
+    .halfCircleBottom {
+        height: 75px;
+        width: 150px;
+        border-radius: 0 0 90px 90px;
+        margin: 0px;
+        background-color: white;
+    }
+    
+
+    .box1 p {
+        font-weight: bold;
+        color: black;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
+        font-size: 19px;
+    }
+
+    .box1:hover {
+        font-weight: bolder;
+        color: black;
+        transform: translateY(-10px);
+    }
+
+    .steps1 {
+        color: black;
+        font-weight: 800;
+        font-size: 30px;
+    }
+
+    .image {
+        width: 100%;
+        height: 90%;
+        background-image:url({% static 'images/6.png' %});
+        background-repeat:no-repeat;
+        background-position: left;
+
+        {% comment %} background-width:1%; {% endcomment %}
+        border: 5px solid black;
+    }
+
+    .transparentbox {
+        margin-top: 10%;
+        font-weight: bold;
+        font-size: 200%;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: #d1955d;
+        text-align: right;
+        margin-right: 2%;
+        text-shadow:
+              1px 1px 1px black,
+              2px 2px 1px black;
+    }
+    .steps1:hover{
+        cursor:help;
+    }
+</style>
+<!--Styling ends here!-->
+
+
+<body id="bodycss">
+    <div class="image" style="background-color:rgb(225, 255, 255);">
+        <div>
+            <p class="transparentbox">"THE SIMPLEST WAY TO<br>
+                PROVIDE "NOTES"</p>
+            <p style="font-weight: bolder;bgcolor: black;
+            font-size: 120%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(32, 81, 136);
+            text-align: right;
+            margin-right: 8.5%;"> All your Notes</p>
+            <p style="font-weight: bolder;
+            font-size: 120%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(32, 81, 136);
+            text-align: right;
+            margin-right: 10.3%;"> User Login <br>
+            <br>
+            <a href="{% url 'login' %}" class="btn btn-dark" style="margin-right: 2%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                    'Helvetica Neue', sans-serif;">Log In</a>
+            </p>
+            <p style="font-weight: bolder;
+            font-size: 120%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(32, 81, 136);
+            text-align: right;
+            margin-right: 6%;">
+                If you're a new user<br>
+            </p>
+            <p style="font-weight: bolder;
+            font-size: 120%;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(32, 81, 136);
+            text-align: right;
+            margin-right: 6%;">
+                <a href="{% url 'signup' %}" class="btn btn-dark" style="margin-right: 6%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+                     'Helvetica Neue', sans-serif;">Sign
+                    Up</a>
+                    
+            </p>
+        </div>
+    </div>
+    <h4 class="steps1 text-center mt-5 mb-5"><u><b>JUST FOLLOW THESE 4 STEPS</b></u></h4>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfCircle">
+                        <i class="fas fa-user-circle"></i>
+                        <!--icon tag="<i>"tag-->
+                    </p>
+                    <p class="halfCircleBottom">
+                        <a href="{% url 'signup' %}" style="color: black;">Create Account</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfCircle">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <!--icon tag="<i>"tag-->
+                    </p>
+                    <p class="halfCircleBottom">
+                        <a href="{% url 'login' %}" style="color: black;">Login</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfCircle">
+                        <i class="fas fa-upload"></i>
+                        <!--icon tag="<i>"tag-->
+                    </p>
+                    <p class="halfCircleBottom">
+                        <a href="{% url 'login' %}" style="color: black;">Upload Notes</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="box1">
+                    <p class="halfCircle">
+                        <i class="fas fa-download"></i>
+                        <!--icon tag="<i>"tag-->
+                    </p>
+                    <p class="halfCircleBottom">
+                        <a href="{% url 'login' %}" style="color: black;">Download Notes</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+<br><br>
+
+{% endblock %}

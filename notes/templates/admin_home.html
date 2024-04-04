@@ -1,0 +1,73 @@
+{% extends 'admin_nav.html'%}
+{% load static %}
+{% block body %}
+
+<style>
+    .container1 {
+        background-color: rgb(192, 232, 245);
+        border: 2px solid black;
+        border-radius: 8px;
+    }
+    #bodycss {
+        background-color: rgb(225, 255, 255);
+    }
+    .textcolor1 {
+        color: black;
+    }
+
+    .mydiv:hover {
+        transform: translateY(-10px);
+    }
+</style>
+<br><br>
+
+<body id="bodycss">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1 py-2">
+                <h2 class="text-dark">{{pendnts}}</h2>
+                <a href="{% url 'pending_notes' %}">
+                    <h4 class="textcolor1">Pending Notes</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv ">
+            <div class="container1 py-2">
+                <h2 class="text-dark">{{accnts}}</h2>
+                <a href="{% url 'accepted_notes' %}">
+                    <h4 class="textcolor1">Accepted Notes</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1 py-2">
+                <h2 class="text-dark">{{rjctnts}}</h2>
+                <a href="{% url 'rejected_notes' %}">
+                    <h4 class="textcolor1">Rejected Notes</h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1 py-2">
+                <h2 class="text-dark">{{allnts}}</h2>
+                <a href="{% url 'all_notes' %}">
+                    <h4 class="textcolor1">All Notes</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+<br><br><br><br><br><br><br><br>
+<footer class="container pt-5 text-center">
+    <p style="font-size : 13px;color:black font-weight:bold;"> Copyright &copy;
+        <script>document.write(new Date().getFullYear());</script><span>|</span> All Right Reserved
+        <span>
+        <br>This Website is Made with <i class="fas fa-heart icon-heart"></i> by</span> <a href="#" target="_blank">Shah Nawaz</a></p>
+
+</footer>
+
+{% endblock %}

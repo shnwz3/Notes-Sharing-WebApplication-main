@@ -1,0 +1,27 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static%}
+<head>
+    <style>
+        #bodycss{
+            background-color: rgb(225, 255, 255);
+        }
+    </style>
+</head>
+<body id="bodycss">
+<div>
+    <h3 class="text-center text-black container pt-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-size: 60px;font-weight: bolder;">About Us</h3>                            <!--here we have done designing of h3 tag using classes we can use css as well, if we want-->
+</div>
+<div class="container">
+    <img src="{% static 'images/aboutus.jpg' %}" style="width:100%; margin-top: 2px;" >
+    <h4>ABOUT US</h4>
+    <hr color="black" width=100% >
+    <p>
+        Hello Friends<br>
+        This is a simple study notes sharing site.Developed by Us using, html,css , bootstrap , sqlite.
+        <br>
+        <br>
+    </p>
+</div>
+</body>
+{%  endblock %}
